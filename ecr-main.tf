@@ -50,10 +50,10 @@ provider "aws" {
 # EOF
 # }
 
-resource "aws_s3_bucket" "tf_state" {
-  bucket = var.bucket_name
-  acl    = "private"
-  versioning {
-    enabled = true
-  }
-}
+# resource "aws_s3_bucket" "tf_state" {
+#   bucket = var.bucket_name
+#   acl    = "private"
+#   versioning {
+#     enabled = true
+#   }
+# }
