@@ -5,10 +5,3 @@ resource "aws_dynamodb_table" "tf_state_lock" {
   hash_key       = "LockID"
 }
 
-terraform {
-  backend "s3" {
-    bucket = "remote-sts-s3-sa1"
-    key    = "state-file"
-    region = "us-east-1"
-  }
-}
