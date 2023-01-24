@@ -2,6 +2,14 @@ provider "aws" {
   region = "us-west-2"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "remote-sts-s3-sa1"
+    key    = "state-file"
+    region = "us-east-1"
+  }
+}
+
 resource "aws_ecr_repository" "ecr-repo" {
   name = var.repo_name
   image_scanning_configuration {
