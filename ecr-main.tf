@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "us-west-2"
+}
+
 resource "aws_ecr_repository" "ecr-repo" {
   name = var.repo_name
   image_scanning_configuration {
