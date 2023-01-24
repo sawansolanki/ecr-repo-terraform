@@ -33,7 +33,7 @@ EOF
 
 terraform {
   backend "s3" {
-    bucket = var.bucket_name
+    bucket = aws_s3_bucket.tf_state.id
     key    = "state-file"
     region = "us-east-1"
   }
