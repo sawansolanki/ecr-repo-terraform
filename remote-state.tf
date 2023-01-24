@@ -31,10 +31,4 @@ resource "aws_s3_bucket_policy" "tf_state" {
 EOF
 }
 
-terraform {
-  backend "s3" {
-    bucket = var.bucket_name
-    key    = "state-file"
-    region = "us-east-1"
-  }
-}
+
