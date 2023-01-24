@@ -36,3 +36,5 @@ terraform {
     bucket = var.bucket_name
     key    = "state-file"
     region = "us-east-1"
+  }
+}
