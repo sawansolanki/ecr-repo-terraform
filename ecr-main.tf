@@ -6,18 +6,8 @@ resource "aws_ecr_repository" "ecr-repo" {
   }
 
   tags = {
-    Environment = "production"
+    Env = "demo"
   }
 
-  lifecycle_policy {
-    rule {
-      rule_priority = 1
-      action {
-        type = "expire"
-      }
-      condition {
-        days_since_image_pushed = 7
-      }
-    }
-  }
+  
 }
