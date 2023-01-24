@@ -3,14 +3,14 @@ provider "aws" {
 }
 
 
-terraform {
-  backend "s3" {
-    bucket         = var.bucket_name
-    key            = "terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = var.dynamodb_table
-  }
-}
+# terraform {
+#   backend "s3" {
+#     bucket         = var.bucket_name
+#     key            = "terraform.tfstate"
+#     region         = "us-east-1"
+#     dynamodb_table = var.dynamodb_table
+#   }
+# }
 
 resource "aws_ecr_repository" "ecr-repo" {
   name = var.repo_name
