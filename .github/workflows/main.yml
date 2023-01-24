@@ -1,0 +1,39 @@
+name: Deploy Terraform to AWS
+
+on:
+  workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2
+
+    - name: Install Terraform
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y unzip
+        wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip
+        unzip terraform_0.14.3_linux_amd64.zip -d /usr/local/bin
+        rm terraform_0.14.3_linux_amd64.zip
+
+    - name: Initialize Terraform
+      run: terraform init
+
+    - name: Plan Terraform
+      run: terraform plan -out=tfplan
+
+    - name: Apply Terraform
+      run: terraform apply tfplan
+
+    - name: Clean up
+      run: rm tfplan
