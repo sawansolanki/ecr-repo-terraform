@@ -25,7 +25,8 @@ jobs:
         echo "sudo unzip......"
         wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip
         echo "wget......"
-        unzip terraform_0.14.3_linux_amd64.zip -d /usr/local/bin
+        echo "y" | sudo unzip terraform_0.14.3_linux_amd64.zip -d /usr/local/bin
+        sudo chmod +x /usr/local/bin/terraform
         echo "unzip......"
         #rm terraform_0.14.3_linux_amd64.zip
         
