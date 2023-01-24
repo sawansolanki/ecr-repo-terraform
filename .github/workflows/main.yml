@@ -16,7 +16,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-west-2
+        aws-region: us-east-1
 
     - name: Install Terraform
       run: |
@@ -24,7 +24,7 @@ jobs:
         sudo apt-get install -y unzip
         wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip
         unzip terraform_0.14.3_linux_amd64.zip -d /usr/local/bin
-        rm terraform_0.14.3_linux_amd64.zip
+        #rm terraform_0.14.3_linux_amd64.zip
 
     - name: Initialize Terraform
       run: terraform init
