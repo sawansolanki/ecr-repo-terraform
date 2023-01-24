@@ -7,7 +7,7 @@ resource "aws_dynamodb_table" "tf_state_lock" {
 
 terraform {
   backend "s3" {
-    bucket = var.bucket_name
+    bucket = "remote-sts-s3-sa1"
     key    = "state-file"
     region = "us-east-1"
   }
