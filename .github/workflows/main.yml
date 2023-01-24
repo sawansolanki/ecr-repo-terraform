@@ -35,10 +35,9 @@ jobs:
       run: terraform init
 
     - name: Plan Terraform
-      run: terraform plan -out=tfplan
+      run: terraform plan
 
     - name: Apply Terraform
-      run: terraform apply tfplan
+      run: terraform apply
 
-    - name: Clean up
-      run: rm tfplan
+
