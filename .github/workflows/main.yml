@@ -3,9 +3,9 @@ name: Deploy Terraform to AWS
 on:
   push:
     branches:
-      [main]
+      - main
 
-workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   deploy:
